@@ -1,0 +1,1 @@
+All input CSVs in this directory are synthetic demonstration data generated for reproducible code tests. They are not actual NAV or benchmark records and must not be reported as investment findings. See docs/DATA_SOURCES.md for replacing them with validated historical data.
