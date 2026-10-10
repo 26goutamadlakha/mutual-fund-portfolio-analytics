@@ -129,7 +129,7 @@ def run_pipeline(root: Path, periods_per_year=252, risk_free_annual=0.04, rollin
                             "rolling_63d_market_return": market_63d.values, "rolling_63d_annualized_volatility": vol_63d.values})
     regimes["regime"] = np.where(vol_63d >= high_vol_threshold, "High volatility",
                          np.where(market_63d < 0, "Bear/negative 63d return", "Bull/positive 63d return"))
-    regimes.loc[market_63d.isna(), "regime"] = "Insufficient history"
+    regimes.loc[market_63d.isna().to_numpy(), "regime"] = "Insufficient history"
 
     outputs = {
         "fund_metrics.csv": metrics, "benchmark_comparison.csv": comparison,
